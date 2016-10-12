@@ -1,0 +1,3 @@
+
+"id","request_user,
+audit_type,access_type,acl_enforcer,client_ip,policy_id,repo_name,repo_type,result_reason,event_time,request_user,action,resource_path,resource_type
