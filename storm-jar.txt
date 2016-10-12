@@ -1,0 +1,89 @@
+bolt hdfsIndexingBolt:(2)
+2016-10-12 13:44:26.904 o.a.c.f.i.CuratorFrameworkImpl [INFO] Starting
+2016-10-12 13:44:26.906 o.a.z.ZooKeeper [INFO] Initiating client connection, connectString=gbl11749.systems.uk.hsbc:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@13b4fde2
+2016-10-12 13:44:26.909 o.a.z.ClientCnxn [INFO] Opening socket connection to server gbl11749.systems.uk.hsbc/128.10.112.139:2181. Will not attempt to authenticate using SASL (unknown error)
+2016-10-12 13:44:26.910 o.a.z.ClientCnxn [INFO] Socket connection established to gbl11749.systems.uk.hsbc/128.10.112.139:2181, initiating session
+2016-10-12 13:44:26.911 o.a.z.ClientCnxn [INFO] Session establishment complete on server gbl11749.systems.uk.hsbc/128.10.112.139:2181, sessionid = 0x1574806a672f05c, negotiated timeout = 40000
+2016-10-12 13:44:26.911 o.a.c.f.s.ConnectionStateManager [INFO] State change: CONNECTED
+2016-10-12 13:44:26.932 o.a.z.ZooKeeper [INFO] Session: 0x1574806a672f05c closed
+2016-10-12 13:44:26.932 o.a.z.ClientCnxn [INFO] EventThread shut down
+2016-10-12 13:44:26.960 o.a.k.c.p.ProducerConfig [INFO] ProducerConfig values: 
+	compression.type = none
+	metric.reporters = []
+	metadata.max.age.ms = 300000
+	metadata.fetch.timeout.ms = 60000
+	acks = 1
+	batch.size = 16384
+	reconnect.backoff.ms = 10
+	bootstrap.servers = [gbl11749.systems.uk.hsbc:6667]
+	receive.buffer.bytes = 32768
+	retry.backoff.ms = 100
+	buffer.memory = 33554432
+	timeout.ms = 30000
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	retries = 0
+	max.request.size = 1048576
+	block.on.buffer.full = true
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	metrics.sample.window.ms = 30000
+	send.buffer.bytes = 131072
+	max.in.flight.requests.per.connection = 5
+	metrics.num.samples = 2
+	linger.ms = 0
+	client.id = 
+
+2016-10-12 13:44:26.988 o.a.k.c.p.ProducerConfig [WARN] The configuration request.required.acks = null was supplied but isn't a known config.
+2016-10-12 13:44:26.988 b.s.d.executor [INFO] Prepared bolt indexingErrorBolt:(4)
+2016-10-12 13:44:27.059 STDIO [ERROR] 16/10/12 13:44:27 INFO elasticsearch.plugins: [Iron Fist] modules [], plugins [], sites []
+2016-10-12 13:44:27.069 b.s.util [ERROR] Async loop died!
+java.lang.NoSuchMethodError: org.apache.metron.guava.dataload.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.elasticsearch.threadpool.ThreadPool.<clinit>(ThreadPool.java:190) ~[metron-data-management-0.2.0BETA.jar:?]
+	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:131) ~[metron-data-management-0.2.0BETA.jar:?]
+	at org.apache.metron.elasticsearch.writer.ElasticsearchWriter.init(ElasticsearchWriter.java:78) ~[metron-elasticsearch-0.2.0BETA.jar:?]
+	at org.apache.metron.writer.bolt.BulkMessageWriterBolt.prepare(BulkMessageWriterBolt.java:83) ~[metron-data-management-0.2.0BETA.jar:?]
+	at backtype.storm.daemon.executor$fn__5492$fn__5505.invoke(executor.clj:751) ~[storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at backtype.storm.util$async_loop$fn__644.invoke(util.clj:477) [storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.6.0.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_77]
+2016-10-12 13:44:27.074 b.s.d.executor [ERROR] 
+java.lang.NoSuchMethodError: org.apache.metron.guava.dataload.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.elasticsearch.threadpool.ThreadPool.<clinit>(ThreadPool.java:190) ~[metron-data-management-0.2.0BETA.jar:?]
+	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:131) ~[metron-data-management-0.2.0BETA.jar:?]
+	at org.apache.metron.elasticsearch.writer.ElasticsearchWriter.init(ElasticsearchWriter.java:78) ~[metron-elasticsearch-0.2.0BETA.jar:?]
+	at org.apache.metron.writer.bolt.BulkMessageWriterBolt.prepare(BulkMessageWriterBolt.java:83) ~[metron-data-management-0.2.0BETA.jar:?]
+	at backtype.storm.daemon.executor$fn__5492$fn__5505.invoke(executor.clj:751) ~[storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at backtype.storm.util$async_loop$fn__644.invoke(util.clj:477) [storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.6.0.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_77]
+2016-10-12 13:44:27.093 b.s.util [ERROR] Halting process: ("Worker died")
+java.lang.RuntimeException: ("Worker died")
+	at backtype.storm.util$exit_process_BANG_.doInvoke(util.clj:336) [storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at clojure.lang.RestFn.invoke(RestFn.java:423) [clojure-1.6.0.jar:?]
+	at backtype.storm.daemon.worker$fn__6065$fn__6066.invoke(worker.clj:636) [storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at backtype.storm.daemon.executor$mk_executor_data$fn__5325$fn__5326.invoke(executor.clj:256) [storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at backtype.storm.util$async_loop$fn__644.invoke(util.clj:489) [storm-core-0.10.0.2.4.2.0-258.jar:0.10.0.2.4.2.0-258]
+	at clojure.lang.AFn.run(AFn.java:22) [clojure-1.6.0.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_77]
+2016-10-12 13:44:27.096 b.s.d.worker [INFO] Shutting down worker indexing-16-1476276089 e6703411-0017-49d6-bddf-0bc6787b3b2f 6701
+2016-10-12 13:44:27.097 b.s.d.worker [INFO] Shutting down receive thread
+2016-10-12 13:44:31.887 STDERR [INFO] JMXetricAgent instrumented JVM, see https://github.com/ganglia/jmxetric
+2016-10-12 13:44:32.064 STDERR [INFO] Oct 12, 2016 1:44:32 PM info.ganglia.jmxetric.JMXetricAgent premain
+2016-10-12 13:44:32.066 STDERR [INFO] SEVERE: Exception starting JMXetricAgent
+2016-10-12 13:44:32.067 STDERR [INFO] java.lang.ClassCastException: java.util.ArrayList cannot be cast to org.w3c.dom.NodeList
+2016-10-12 13:44:32.067 STDERR [INFO] 	at info.ganglia.jmxetric.XMLConfigurationService.configureJMXetricFromXML(XMLConfigurationService.java:190)
+2016-10-12 13:44:32.067 STDERR [INFO] 	at info.ganglia.jmxetric.XMLConfigurationService.configure(XMLConfigurationService.java:69)
+2016-10-12 13:44:32.068 STDERR [INFO] 	at info.ganglia.jmxetric.JMXetricAgent.premain(JMXetricAgent.java:51)
+2016-10-12 13:44:32.069 STDERR [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2016-10-12 13:44:32.069 STDERR [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2016-10-12 13:44:32.069 STDERR [INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2016-10-12 13:44:32.070 STDERR [INFO] 	at java.lang.reflect.Method.invoke(Method.java:498)
+2016-10-12 13:44:32.070 STDERR [INFO] 	at sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:386)
+2016-10-12 13:44:32.070 STDERR [INFO] 	at sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:401)
+2016-10-12 13:44:33.854 b.s.u.Utils [INFO] Using defaults.yaml from resources
+2016-10-12 13:44:33.928 b.s.u.Utils [INFO] Using storm.yaml from resources
+2016-10-12 13:44:34.341 o.a.s.z.ZooKeeper [INFO] Client environment:zookeeper.version=3.4.6-258--1, built on 04/25/2016 05:22 GMT
+2016-10-12 13:44:34.341 o.a.s.z.ZooKeeper [INFO] Client environment:host.name=gbl11749.systems.uk.hsbc
+2016-10-12 13:44:34.341 o.a.s.z.ZooKeeper [INFO] Client environment:java.version=1.8.0_77
+2016-10-12 13:44:34.341 o.a.s.z.ZooKeeper [INFO] Client environment:java.vendor=Oracle Corporation
+2016-10-12 13:44:34.341 o.a.s.z.ZooKeeper [INFO] Client environment:java.home=/usr/jdk64/jdk1.8.0_77/jre
+2016-10-12 13:44:34.341 o.a.s.z.ZooKeeper [INFO] Client environment:java.class.path=/usr/hdp/2.4.2.0-258/storm/lib/ring-json-0.3.1.jar:/usr/hdp/2.4.2.0-258/storm/lib/kryo-2.21.jar:/usr/hdp/2.4.2.0-258/storm/lib/metron-data-management-0.2.0BETA.jar:/usr/hdp/2.4.2.0-258/storm/lib/tigris-0.1.1.jar:/usr/hdp/2.4.2.0-258/storm/lib/ns-tracker-0.2.2.jar:/usr/hdp/2.4.2.0-258/storm/lib/tools.logging-0.2.3.jar:/usr/hdp/2.4.2.0-258/storm/lib/tools.namespace-0.2.4.jar:/usr/hdp/2.4.2.0-258/storm/lib/metron-enrichment-0.2.0BETA-uber.jar:/usr/hdp/2.4.2.0-258/storm/lib/metron-elasticsearch-0.2.0BETA.jar:/usr/hdp/2.4.2.0-258/storm/lib/java.classpath-0.2.2.jar:/usr/hdp/2.4.2.0-258/storm/lib/gmetric4j-1.0.7.jar:/usr/hdp/2.4.2.0-258/storm/lib/log4j-core-2.1.jar:/usr/hdp/2.4.2.0-258/storm/lib/jline-0.9.94.jar:/u
