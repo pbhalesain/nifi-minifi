@@ -1,0 +1,4 @@
+{"database":"ranger_audit","table":"xa_access_audit","type":"insert","ts":1475819610,"xid":34405311,"data":{"request_user":"d3956122","access_result":1,"resource_path":"WordIndex_business/word_index/index","repo_name":"HDP57_hbase","policy_id":0,"client_ip":"128.162.65.182","id":383448895,"audit_type":1,"access_type":"Put","resource_type":"column","action":"Put","event_time":"2016-10-07 05:53:23","repo_type":2,"acl_enforcer":"xasecure-acl"}}
+
+
+"request_user":"d3956122","access_result":1,"resource_path":"WordIndex_business/word_index/index","repo_name":"HDP57_hbase","policy_id":0,"client_ip":"128.162.65.182","id":383448895,"audit_type":1,"access_type":"Put","resource_type":"column","action":"Put","event_time":"2016-10-07 05:53:23","repo_type":2,"acl_enforcer":"xasecure-acl"}
